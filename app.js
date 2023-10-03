@@ -21,15 +21,19 @@ app.use(
         return callback(null, true);
       }
 
+      if (!origin) {
+        return callback(null, false);
+      }
+
       return callback(new Error("Not allowed by CORS"));
     },
   })
 );
 app.disable("x-powered-by");
 
-app.get("/", (req, res) => {
-  res.json({ message: "Hola Mundo..." });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "Hola Mundo..." });
+// });
 
 // const ACCEPTED_ORIGINS = [
 //   "http://localhost:8080",

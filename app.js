@@ -1,7 +1,7 @@
 const express = require("express");
 const crypto = require("node:crypto");
 const cors = require("cors");
-const movies = require("./clase3/movies.json");
+const movies = require("./movies.json");
 const { validateMovie, validatePartialMovie } = require("./schemas/movies");
 const { title } = require("node:process");
 
@@ -117,7 +117,7 @@ app.patch("/movies/:id", (req, res) => {
   return res.json(updateMovie);
 });
 
-const PORT = process.env.PORT || 1234;
+const PORT = process.env.PORT ?? 1234;
 
 app.listen(PORT, (req, res) => {
   console.log(`server listening on port http://localhost:${PORT}`);
